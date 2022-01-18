@@ -29,3 +29,24 @@ def sey_hallo():
 **After filling out the form and pressing the "say hello" button, the user will see a greeting on the screen and his data will be entered into the database.**
 
 **If the user's mail is already in the database, he will see the message "already met".**
+
+```python
+que = session.query(Users).filter_by(email=user_email)
+    find = que.first()
+    if find:
+        try:
+            hallo_again = 'Уже видились, {}'.format(user_name)
+            answer[0] = hallo_again
+        except:
+            return 'Oops, smth wrong'
+    else:
+        try:
+            user = Users(name=user_name, surname=user_surname, email=user_email)
+            session.add(user)
+            session.commit()
+            nice_to_meet_u = 'Привет, {}'.format(user_name)
+            answer[0] = nice_to_meet_u
+        except:
+            return 'Oops, smth wrong'
+    return redirect(url_for('main'))
+```
