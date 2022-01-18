@@ -72,3 +72,28 @@ def show_users():
         return 'Error while trying to read DB'
     return render_template('show_users.html', users=users)
 ```
+
+## Function 'Find user'
+
+**You can find any user in data base by filling form and clicking the 'Search' button**
+
+```python
+def find_email_user(email):
+    data = session.query(Users)
+    founded_user = data.filter_by(email=email).all()
+    return founded_user
+```
+
+```python
+def find_user():
+    try:
+        email = request.form['email']
+        founded_user = find_email_user(email=email)
+        if founded_user:
+            return render_template('index.html', founded_user=founded_user)
+        else:
+            miss = ("user wasn't found",)
+            return render_template('index.html', miss=miss)
+    except:
+        return "Oops, smth wrong"
+```    
