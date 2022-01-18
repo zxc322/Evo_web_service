@@ -75,7 +75,7 @@ def show_users():
 
 ## Function 'Find user'
 
-**You can find any user in data base by filling form and clicking the 'Search' button**
+**You also can find any user in data base by filling form and clicking the 'Search' button**
 
 ```python
 def find_email_user(email):
