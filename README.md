@@ -50,3 +50,25 @@ que = session.query(Users).filter_by(email=user_email)
             return 'Oops, smth wrong'
     return redirect(url_for('main'))
 ```
+
+
+## Function 'Show_users'
+
+**On the main page you can find link `Show all users`**
+*You will redirect to page with all users in database by clicking it*
+
+```python
+def query():
+    data = session.query(Users)
+    all_data = data.all()
+    return all_data
+```
+
+```python
+def show_users():
+    try:
+        users = query()
+    except:
+        return 'Error while trying to read DB'
+    return render_template('show_users.html', users=users)
+```
