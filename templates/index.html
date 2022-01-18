@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Try zxc</title>
+    <style>
+
+        .but {width: 400px; height: 400px; background-color: green; color: white; padding: 10px 20px;
+        transition-duration: 0.5s; margin: 15px; text-decoration: none }
+        .but:hover {background-color: grey; color: black; transition-duration: 0.5s}
+
+        .form_enter label {
+                            display: inline-block;
+                            min-width: 150px;
+                        }
+        .form_enter p {margin: 10px 0 10px 0;}
+
+        .form_enter input[type=submit], textarea {
+	font-size: 16px;
+}
+
+
+    </style>
+
+</head>
+<body bgcolor=#ABCBFC>
+        <h2>Привет!</h2>
+        <p><h4>Давайте с Вами познакомимся</h4>
+        <form method="post" action="/say_hallo" class="form_enter">
+                <p><label>ведите своё имя:</label><input type="text" name="user_name"/>
+                <p><label>Введите Фимилию: </label><input type="text" name="user_surname"/>
+                <p><label>Введите   email: </label><input type="text" name="user_email"/>
+                <button type="submit">Поздороваться</button>
+
+        </form>
+
+        {% for user in answer %}
+        <div><h3>{{ user }} !</h3></div>
+        {% endfor %}
+
+
+        <form method="post" action="/find_user">
+            <p><label>Введите 'email' пользователя для поиска в базе:</label><input type="text" name="email">
+            <button type="submit">Поиск</button>
+        </form>
+
+        {% for val in founded_user %}
+        <li><p>Пользователь с почтой '{{ val.email }}'</p>
+            <ul>
+                <li>id: {{ val.id }}</li>
+                <li>Имя: {{ val.name }}</li>
+                <li>Фамилия:  {{ val.surname}}</li>
+            </ul>
+        {% endfor %}
+
+        {% for miss in miss %}
+            <div><h3>{{ miss }}</h3></div>
+        {% endfor %}
+
+
+        <p><a href="{{ url_for('show_users') }}" target="_blank" class="but">Show all users</a>
+        </p>
+</body>
+</html>
