@@ -1,12 +1,12 @@
 # Evo web service
 
-### To your attention is a simple web service that saves in the database all users who press "say hallo" button.
+### To your attention is a simple web service that saves in the database all users who press `say hallo` button.
 
 ### Writed with flask and sqlalchemy
 
 ## Main function
 
-**To say hello, you must fill in all three fields (name, surname and mail), and press "say hallo"**
+**To say hello, you must fill in all three fields (name, surname and email), and press `say hallo`**
 
 *The name and surname must contain at least two characters, and mail at least five.*
 
@@ -26,9 +26,9 @@ def sey_hallo():
         return redirect(url_for('main'))
 ```        
 
-**After filling out the form and pressing the "say hello" button, the user will see a greeting on the screen and his data will be entered into the database.**
+**After filling out the form and pressing the `say hello` button user will see a greeting on the screen and his data will be entered into the database.**
 
-**If the user's mail is already in the database, he will see the message "already met".**
+**If user's email is already in the database, he will see the message `already met`.**
 
 ```python
 que = session.query(Users).filter_by(email=user_email)
