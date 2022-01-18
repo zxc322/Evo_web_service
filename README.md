@@ -4,8 +4,10 @@
 
 ## Main function
 
-To say hello, you must fill in all three fields (name, surname and mail), and press "say hallo"
+**To say hello, you must fill in all three fields (name, surname and mail), and press "say hallo"**
 
 *The name and surname must contain at least two characters, and mail at least five.*
 
-*After filling out the form and pressing the "say hello" button, the user will see a greeting on the screen and his data will be entered into the database.*
+**After filling out the form and pressing the "say hello" button, the user will see a greeting on the screen and his data will be entered into the database.**
+
+**If the user's mail is already in the database, he will see the message "already met".**
